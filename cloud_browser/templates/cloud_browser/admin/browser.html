@@ -8,7 +8,6 @@
 ###############################################################################
 {% endcomment %}
 
-{% load adminmedia %}
 {% load cloud_browser_extras %}
 
 {% block title %}
@@ -21,9 +20,9 @@
 {% block cloud_browser_template_head %}
 {# Use jQuery from Admin #}
 <script type="text/javascript" 
-        src="{% admin_media_prefix %}js/jquery.js"></script>
+        src="{{ STATIC_URL }}js/jquery.js"></script>
 <script type="text/javascript" 
-        src="{% admin_media_prefix %}js/jquery.init.js"></script>
+        src="{{ STATIC_URL }}js/jquery.init.js"></script>
 
 <link rel="stylesheet" type="text/css"
     href="{% cloud_browser_media_url 'css/cloud-browser.css' %}" />

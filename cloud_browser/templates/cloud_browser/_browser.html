@@ -9,14 +9,14 @@
 {% block cloud_browser_content %}
 <div id="cloud-browser-all" class="cloud-browser-defaults">
 <div id="cloud-browser-containers">
-<h2>Containers</h2>
-<ul>
+<h2 style="padding: 5px 0px 5px 0px;">Containers</h2>
+<ul style="padding-left: 40px;">
 {% for cont in containers %}
   {% if cont == container %}
   <li class="cb-selected">{{ cont.name|truncatechars:22 }}</li>
   {% else %}
   <li>
-    <a href="{% url cloud_browser_browser cont.name|urlencode %}"
+    <a href="{% url 'cloud_browser_browser' cont.name|urlencode %}"
        title="{{ cont.name }}">{{ cont.name|truncatechars:22 }}</a>
   </li>
   {% endif %}
@@ -25,7 +25,6 @@
 </div>
 
 <div id="cloud-browser-objects">
-<h2>Objects</h2>
 {% if objects %}
 <table id="cloud-browser-objects-table">
   <thead>
@@ -47,10 +46,10 @@
             <td><img src="{% cloud_browser_media_url 'img/tango/16x16/mimetypes/text-x-generic.png' %}" /></td>
         {% endif %}
         {% if obj.is_file %}
-        <td><a href="{% url cloud_browser_document obj.path|urlencode %}"
+        <td><a href="{% url 'cloud_browser_document' obj.path|urlencode %}"
             >{{ obj.basename }}</a></td>
         {% else %}
-        <td><a href="{% url cloud_browser_browser obj.path|urlencode %}"
+        <td><a href="{% url 'cloud_browser_browser' obj.path|urlencode %}"
                class="cloud-browser-document-link"
             >{{ obj.basename }}</a></td>
         {% endif %}
@@ -82,7 +81,7 @@
       <td colspan="6">
         {% if marker_part %}
         <form id="cloud-browser-next" class="cloud-browser-form"
-          action="{% url cloud_browser_browser path|urlencode %}" method="post">
+          action="{% url 'cloud_browser_browser' path|urlencode %}" method="post">
           {% csrf_token %}
           Next
           <input name="limit" type="text" size="5"
