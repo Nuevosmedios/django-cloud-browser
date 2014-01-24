@@ -1,4 +1,4 @@
-{% extends "admin/base_site.html" %}
+{% extends "base.html" %}
 
 {% comment %}
 ###############################################################################
@@ -11,6 +11,7 @@
   {% block cloud_browser_template_head %}{% endblock %}
 {% endblock %}
 
+{% comment %}
 {% block breadcrumbs %}
   <div class="breadcrumbs" style="padding: 5px 20px;">
     <a href="/admin/">Inicio</a> &raquo;
@@ -20,6 +21,7 @@
     {% endblock %}
   </div>
 {% endblock %}
+{% endcomment %}
 
 {% block content_title %}
   <h1>{% block title %}{% endblock %}</h1>
@@ -28,7 +30,14 @@
 {% block content %}
   {% block object-tools %}{% endblock %}
   {% block body %}
-    <div id="cloud-browser-content">
+  <div style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
+    <ol class="breadcrumb">
+        <li><a href="/">Inicio</a></li>
+        {% include "cloud_browser/_breadcrumbs.html" %}
+    </ol>
+  </div>
+
+    <div id="cloud-browser-content" style="padding: 0px 20px;">
       {% block cloud_browser_content %}{% endblock %}
     </div>
   {% endblock %}

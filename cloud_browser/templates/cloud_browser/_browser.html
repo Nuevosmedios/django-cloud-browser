@@ -8,7 +8,8 @@
 
 {% block cloud_browser_content %}
 <div id="cloud-browser-all" class="cloud-browser-defaults">
-<div id="cloud-browser-containers">
+{% comment %}
+<div id="cloud-browser-containers" class="col-lg-3">
 <h2 style="padding: 5px 0px 5px 0px;">Containers</h2>
 <ul style="padding-left: 40px;">
 {% for cont in containers %}
@@ -23,10 +24,12 @@
 {% endfor %}
 </ul>
 </div>
+{% endcomment %}
 
-<div id="cloud-browser-objects">
+<div id="cloud-browser-objects" class="panel panel-default">
 {% if objects %}
-<table id="cloud-browser-objects-table">
+<div class="panel-heading">Biblioteca de contenidos</div>
+<table id="cloud-browser-objects-table" class="table table-hover table table-hover table-striped">
   <thead>
     <tr>
       <th style="width: 16px;">&nbsp;</th>
