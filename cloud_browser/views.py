@@ -2,7 +2,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.utils.importlib import import_module
+from importlib import import_module
 
 from cloud_browser.app_settings import settings
 from cloud_browser.cloud import get_connection, get_connection_cls, errors
